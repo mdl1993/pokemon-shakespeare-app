@@ -6,8 +6,11 @@ import PokemonDescription from "../pokemonDescription/PokemonDescription";
 import PokemonInput from "../pokemonInput/PokemonInput";
 
 export default function Homepage() {
+    // State for cached Pokémon entries
     const [entries, setEntries] = useState<PokemonEntry[]>([]);
+    // State for current description
     const [description, setDescription] = useState("");
+    // Loading and error states
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
 
@@ -20,6 +23,12 @@ export default function Homepage() {
         localStorage.setItem("entries", JSON.stringify(entries));
     }, [entries]);
 
+    /**
+     * Handle Pokémon search.
+     * - Reset UI states
+     * - Fetch Shakespearean description
+     * - Update entries cache
+     */
     const handleSearch = async (pokemon: string) => {
         setLoading(true);
         setError("");
@@ -49,6 +58,9 @@ export default function Homepage() {
         }
     };
 
+    /**
+     * Mark and remove a Pokémon as favourite.
+     */
     const addFavourite = (name: string) => {
         setEntries((prev) => {
             const existing = prev.find(
@@ -77,8 +89,8 @@ export default function Homepage() {
 
     return (
         <div className="w-full">
-            <h1 className="text-4xl font-extrabold text-black text-center mb-3">
-                Pokémon Shakespearean description
+            <h1 className="text-4xl font-bold text-black text-center mb-3">
+                Pokémon Shakespearean <br /> description
             </h1>
             <PokemonInput onSearch={handleSearch} onAddFavourite={addFavourite} />
             <PokemonDescription description={description} loading={loading} error={error} />
@@ -89,6 +101,5 @@ export default function Homepage() {
             />
         </div>
     );
-
 
 }

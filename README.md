@@ -1,36 +1,122 @@
+# Pokémon Shakespeare App
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
 
-First, run the development server:
+## Overview
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+The Pokémon Shakespeare App is a web application that bridges the world of Pokémon with the classical literary style of William Shakespeare. Users can search for their favorite Pokémon and receive its official description rephrased in Shakespearean English. The project uses external APIs to fetch Pokémon data and perform the translation.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Pokémon Search: Find any Pokémon by name using a search interface.
+- Shakespearean Descriptions: Get official Pokémon descriptions translated into Shakespearean English.
+- Pokémon Details Display: View information for each Pokémon.
+- Fast & Responsive UI: Built with Next.js and React.
+- Modern Styling: Responsive design powered by Tailwind CSS.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Tech Stack
 
-## Learn More
+Frontend:
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- PostCSS
 
-To learn more about Next.js, take a look at the following resources:
+Backend:
+- Next.js API Routes for server-side logic and API proxying
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+DevOps:
+- Deployment with Vercel
+- ESLint
+- pnpm
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Quick Start
 
-## Deploy on Vercel
+Follow these steps to run the application locally.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Prerequisites
+- Node.js (LTS version recommended)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Installation
+
+1. Clone the repository
+   ```bash
+   git clone https://github.com/mdl1993/pokemon-shakespeare-app.git
+   cd pokemon-shakespeare-app
+
+2. Install dependencies
+    pnpm install
+
+3. Environment setup 
+
+Create a .env.local file in the project root and configure environment variables:
+
+NEXT_PUBLIC_POKEMON_API_BASE_URL=https://pokeapi.co/api/v2/
+SHAKESPEARE_TRANSLATION_API_KEY=your_shakespeare_api_key_here
+SHAKESPEARE_TRANSLATION_API_BASE_URL=https://api.funtranslations.com/
+
+4. Start development server
+pnpm run dev
+
+5. Open your browser at http://localhost:3000.
+
+## Project Structure
+
+pokemon-shakespeare-app/
+├── app/                  # Next.js App Router root
+│   ├── api/              # API routes
+│   └── (pages)/          # Pages and layouts
+├── public/               # Static assets
+├── .gitignore
+├── LICENSE
+├── README.md
+├── eslint.config.mjs
+├── next.config.ts
+├── package.json
+├── pnpm-lock.yaml
+├── postcss.config.mjs
+└── tsconfig.json
+
+## Configuration
+Environment variables are loaded from .env.local.
+
+NEXT_PUBLIC_POKEMON_API_BASE_URL: Base URL for the Pokémon API (default: https://pokeapi.co/api/v2/)
+
+SHAKESPEARE_TRANSLATION_API_KEY: API key for the Shakespearean translation service
+
+SHAKESPEARE_TRANSLATION_API_BASE_URL: Base URL for the translation API (default: https://api.funtranslations.com/)
+
+## Development
+Available scripts:
+
+pnpm run dev: Starts the development server
+
+pnpm run build: Creates a production build
+
+pnpm run start: Starts the production server
+
+pnpm run lint: Runs ESLint
+
+## Testing
+This project uses ESLint for code quality checks.
+
+Run linting:
+
+bash
+pnpm run lint
+
+## Deployment
+The application is configured for deployment to Vercel.
+
+Production build:
+
+bash
+pnpm run build
+Deployment options:
+
+Vercel: Link your GitHub repository to a new Vercel project. Vercel will detect Next.js and deploy automatically.
+
+Other hosting: Deploy the build output to any Node.js compatible hosting service.
+
